@@ -1,11 +1,20 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const dbConnect = require('./config/dbConnect');
+const authRoute = require('./routes/authRoutes');
+
+
 
 
 dbConnect();
 const app = express();
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send("Server is runing");
+})
+
+app.use('/api/auth', authRoute);
 
 
 

@@ -39,11 +39,16 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+        minlength: 8,
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+    role: {
+        type: String,
+        required: true,
+        enum: ['admin', 'user'],
+    },
+
+}, {
+    timestamps: true,
 });
 
 const User = mongoose.model('User', userSchema);
