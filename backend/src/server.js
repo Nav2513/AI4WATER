@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const dbConnect = require('./config/dbConnect');
 const authRoute = require('./routes/authRoutes');
-
+const userRoute = require('./routes/userRoutes')
 
 
 
@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/auth', authRoute);
+app.use('/api/users', userRoute);
 
 
 
