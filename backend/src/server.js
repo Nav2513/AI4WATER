@@ -3,12 +3,18 @@ const dotenv = require('dotenv').config();
 const dbConnect = require('./config/dbConnect');
 const authRoute = require('./routes/authRoutes');
 const userRoute = require('./routes/userRoutes')
-
+const cors = require('cors');
 
 
 dbConnect();
 const app = express();
 app.use(express.json());
+
+app.use(cors({
+    origin: 'http://localhost:3000' || 'http://localhost:3001',
+    credential: true
+}))
+
 
 app.get('/', (req, res) => {
     res.send("Server is runing");
