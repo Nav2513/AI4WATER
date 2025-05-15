@@ -28,14 +28,6 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    country: {
-        type: String,
-        required: true,
-    },
-    state: {
-        type: String,
-        required: true,
-    },
     password: {
         type: String,
         required: true,
